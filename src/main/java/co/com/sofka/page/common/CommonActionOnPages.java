@@ -2,9 +2,16 @@ package co.com.sofka.page.common;
 
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.Keys.*;
 
 public class CommonActionOnPages {
     private WebDriver driver;
+    private WebDriverWait wait;
 
     public CommonActionOnPages(WebDriver driver) {
         this.driver = driver;
@@ -22,14 +29,16 @@ public class CommonActionOnPages {
         driver.findElement(locator).click();
     }
 
-
+    public void tab(By locator){
+        driver.findElement(locator).sendKeys(TAB);
+    }
 
     public void findElement(By locator){
         driver.findElement(locator);
     }
 
     public void enter(By locator){
-        driver.findElement(locator).sendKeys(Keys.ENTER);
+        driver.findElement(locator).sendKeys(ENTER);
     }
 
     public void addFile(By locator, String add){
@@ -45,9 +54,18 @@ public class CommonActionOnPages {
         return driver.findElement(locator).getText();
     }
 
-    public void scrollTo(By locator){
+    protected void scrollTo(By locator){
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
+    }
+    public void implicitWaitTime(int seconds){
+        driver.manage().timeouts().implicitlyWait(seconds , TimeUnit.SECONDS);
+    }
+
+    protected void explicitWaitTime(By locator){
+        wait =new WebDriverWait(driver,100);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
     }
 
 

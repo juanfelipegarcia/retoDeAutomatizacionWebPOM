@@ -7,7 +7,7 @@ public class WebUI {
 
     private static final String WEBDRIVER_CHROME_DRIVER = "webdriver.chrome.driver";
     private static final String WEBDRIVER_CHROME_DRIVER_PATH = "src\\test\\resources\\driver.windows\\chrome\\chromedriver.exe";
-    private static final String DEMO_QA_URL = "https://www.despegar.com.co";
+    private static final String DEMO_QA_URL = "https://www.despegar.com.co/vuelos/";
 
     protected WebDriver driver;
 
@@ -23,7 +23,7 @@ public class WebUI {
     protected void generalSetUp(){
         setUpWebdriver();
         setUpWebdriverUrl();
-        //maximize();
+        maximize();
     }
 
     protected void quietDriver(){
