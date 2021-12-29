@@ -1,5 +1,6 @@
 package co.com.sofka.model;
 
+import co.com.sofka.util.TipoClase;
 import co.com.sofka.util.TipoViaje;
 
 public class RetoWPModel {
@@ -7,15 +8,15 @@ public class RetoWPModel {
     private TipoViaje tipoViaje;
     private String origen;
     private String destino;
-    private String idaDia;
+    private int idaDia;
     private String idaMes;
-    private String idaAno;
-    private String regresoDia;
+    private int idaAno;
+    private int regresoDia;
     private String regresoMes;
-    private String regresoAno;
+    private int regresoAno;
     private String pasajeroAdulto;
     private String pasajeroMenor;
-    private String clase;
+    private TipoClase tipoClase;
     private String tarjetaCredito;
     private String nombretitularTC;
     private String apellidotitularTC;
@@ -34,14 +35,22 @@ public class RetoWPModel {
     private String diaAdulto2;
     private String mesAdulto2;
     private String yearAdulto2;
+    private String nombresNino1;
+    private String apellidosNino1;
+    private String documentoNino1;
+    private String edadNino1;
+    private String diaNino1;
+    private String mesNino1;
+    private String anoNino1;
+    private String nombresNino2;
+    private String apellidosNino2;
+    private String documentoNino2;
+    private String edadNino2;
     private String email;
     private String area;
     private String numeroTelefonico;
     private String ciudad;
     private String direccion;
-
-
-
 
     public TipoViaje getTipoViaje() {
         return tipoViaje;
@@ -67,12 +76,12 @@ public class RetoWPModel {
         this.destino = destino;
     }
 
-    public String getIdaDia() {
+    public int getIdaDia() {
         return idaDia;
     }
 
-    public void setIdaDia(String idaDia) {
-        this.idaDia = idaDia;
+    public void setIdaDia(int idaDia) {
+        this.idaDia = idaDia+1;
     }
 
     public String getIdaMes() {
@@ -83,20 +92,20 @@ public class RetoWPModel {
         this.idaMes = idaMes;
     }
 
-    public String getIdaAno() {
+    public int getIdaAno() {
         return idaAno;
     }
 
-    public void setIdaAno(String idaAno) {
+    public void setIdaAno(int idaAno) {
         this.idaAno = idaAno;
     }
 
-    public String getRegresoDia() {
+    public int getRegresoDia() {
         return regresoDia;
     }
 
-    public void setRegresoDia(String regresoDia) {
-        this.regresoDia = regresoDia;
+    public void setRegresoDia(int regresoDia) {
+        this.regresoDia = regresoDia+1;
     }
 
     public String getRegresoMes() {
@@ -107,11 +116,11 @@ public class RetoWPModel {
         this.regresoMes = regresoMes;
     }
 
-    public String getRegresoAno() {
+    public int getRegresoAno() {
         return regresoAno;
     }
 
-    public void setRegresoAno(String regresoAno) {
+    public void setRegresoAno(int regresoAno) {
         this.regresoAno = regresoAno;
     }
 
@@ -131,12 +140,12 @@ public class RetoWPModel {
         this.pasajeroMenor = pasajeroMenor;
     }
 
-    public String getClase() {
-        return clase;
+    public TipoClase getTipoClase() {
+        return tipoClase;
     }
 
-    public void setClase(String clase) {
-        this.clase = clase;
+    public void setTipoClase(TipoClase tipoClase) {
+        this.tipoClase = tipoClase;
     }
 
     public String getTarjetaCredito() {
@@ -203,6 +212,14 @@ public class RetoWPModel {
         this.apellidosAdulto1 = apellidosAdulto1;
     }
 
+    public String getDocumentoAdulto1() {
+        return documentoAdulto1;
+    }
+
+    public void setDocumentoAdulto1(String documentoAdulto1) {
+        this.documentoAdulto1 = documentoAdulto1;
+    }
+
     public String getDiaAdulto1() {
         return diaAdulto1;
     }
@@ -243,6 +260,14 @@ public class RetoWPModel {
         this.apellidosAdulto2 = apellidosAdulto2;
     }
 
+    public String getDocumentoAdulto2() {
+        return documentoAdulto2;
+    }
+
+    public void setDocumentoAdulto2(String documentoAdulto2) {
+        this.documentoAdulto2 = documentoAdulto2;
+    }
+
     public String getDiaAdulto2() {
         return diaAdulto2;
     }
@@ -265,6 +290,94 @@ public class RetoWPModel {
 
     public void setYearAdulto2(String yearAdulto2) {
         this.yearAdulto2 = yearAdulto2;
+    }
+
+    public String getNombresNino1() {
+        return nombresNino1;
+    }
+
+    public void setNombresNino1(String nombresNino1) {
+        this.nombresNino1 = nombresNino1;
+    }
+
+    public String getApellidosNino1() {
+        return apellidosNino1;
+    }
+
+    public void setApellidosNino1(String apellidosNino1) {
+        this.apellidosNino1 = apellidosNino1;
+    }
+
+    public String getDocumentoNino1() {
+        return documentoNino1;
+    }
+
+    public void setDocumentoNino1(String documentoNino1) {
+        this.documentoNino1 = documentoNino1;
+    }
+
+    public String getEdadNino1() {
+        return edadNino1;
+    }
+
+    public void setEdadNino1(String edadNino1) {
+        this.edadNino1 = edadNino1;
+    }
+
+    public String getDiaNino1() {
+        return diaNino1;
+    }
+
+    public void setDiaNino1(String diaNino1) {
+        this.diaNino1 = diaNino1;
+    }
+
+    public String getMesNino1() {
+        return mesNino1;
+    }
+
+    public void setMesNino1(String mesNino1) {
+        this.mesNino1 = mesNino1;
+    }
+
+    public String getAnoNino1() {
+        return anoNino1;
+    }
+
+    public void setAnoNino1(String anoNino1) {
+        this.anoNino1 = anoNino1;
+    }
+
+    public String getNombresNino2() {
+        return nombresNino2;
+    }
+
+    public void setNombresNino2(String nombresNino2) {
+        this.nombresNino2 = nombresNino2;
+    }
+
+    public String getApellidosNino2() {
+        return apellidosNino2;
+    }
+
+    public void setApellidosNino2(String apellidosNino2) {
+        this.apellidosNino2 = apellidosNino2;
+    }
+
+    public String getDocumentoNino2() {
+        return documentoNino2;
+    }
+
+    public void setDocumentoNino2(String documentoNino2) {
+        this.documentoNino2 = documentoNino2;
+    }
+
+    public String getEdadNino2() {
+        return edadNino2;
+    }
+
+    public void setEdadNino2(String edadNino2) {
+        this.edadNino2 = edadNino2;
     }
 
     public String getEmail() {
@@ -305,21 +418,5 @@ public class RetoWPModel {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public String getDocumentoAdulto1() {
-        return documentoAdulto1;
-    }
-
-    public void setDocumentoAdulto1(String documentoAdulto1) {
-        this.documentoAdulto1 = documentoAdulto1;
-    }
-
-    public String getDocumentoAdulto2() {
-        return documentoAdulto2;
-    }
-
-    public void setDocumentoAdulto2(String documentoAdulto2) {
-        this.documentoAdulto2 = documentoAdulto2;
     }
 }

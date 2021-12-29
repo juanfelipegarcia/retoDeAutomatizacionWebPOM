@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         features={"src/test/resources/features/retowp.feature"},
         glue={"co.com.sofka.stepdefinition"},
-        tags = "not @regresion2",
+        tags = "",
         publish = true
 )
 

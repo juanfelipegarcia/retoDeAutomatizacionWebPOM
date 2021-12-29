@@ -9,9 +9,9 @@ Feature: Checkeo precios vuelos
   @regresion
   Scenario: Digito los datos necesarios para la verificacion de los precios de los vuelos  ida y vuelta
     When el Usuario ingresa los campos obligatorios y necesarios para la seleccion del destino de ida y vuelta  e inicia la busqueda.
-    Then el sistema debera mostrar por pantalla los diferentes precios del vueldo de ida.
+    Then el sistema debera mostrar por pantalla los diferentes precios del vueldo de ida y vuelta.
 
   @regresion2
   Scenario: Digito los datos necesarios para la verificacion de los precios vuelo de solo ida.
     When el Usuario ingresa los campos obligatorios y necesarios para la seleccion del destino de ida e inicia la busqueda.
-    Then el sistema debera mostrar por pantalla los diferentes precios del vueldo de ida y vuelta.
+    Then el sistema debera mostrar por pantalla los diferentes precios del vueldo de ida.
