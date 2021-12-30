@@ -25,25 +25,15 @@ hs_err_pid*
 # Gradle
 .gradle
 
-
-
 #Intellij
 .idea
-
-
 
 #Java
 build
 
-
-
 out
 
-
-
 history
-
-
 
 #Serenity
 target
