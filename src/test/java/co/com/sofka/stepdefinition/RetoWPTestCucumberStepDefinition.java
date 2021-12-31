@@ -9,6 +9,7 @@ import co.com.sofka.util.TipoViaje;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -31,6 +32,7 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
 
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.warn(exception);
             quietDriver();
         }
 
@@ -46,6 +48,7 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
 
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.warn(exception);
             quietDriver();
 
         }
@@ -81,6 +84,7 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
             retoWPPage.fillretoWPTestIda();
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.warn(exception);
             quietDriver();
         }
     }
@@ -96,25 +100,23 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
 
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.warn(exception);
             quietDriver();
         }finally {
             quietDriver();
         }
-
-
-
     }
 
     private void generateTravelIdaVuelta(){
         viajeIdaVuelta = new RetoWPModel();
         viajeIdaVuelta.setTipoViaje(TipoViaje.IDAVUELTA);
-        viajeIdaVuelta.setOrigen("Medellín");
-        viajeIdaVuelta.setDestino("Cartagena de Indias");
+        viajeIdaVuelta.setOrigen(" Medellín");
+        viajeIdaVuelta.setDestino(" Cartagena de Indias");
         viajeIdaVuelta.setIdaDia(14);
-        viajeIdaVuelta.setIdaMes("05");
+        viajeIdaVuelta.setIdaMes("04");
         viajeIdaVuelta.setIdaAno(2022);
         viajeIdaVuelta.setRegresoDia(21);
-        viajeIdaVuelta.setRegresoMes("05");
+        viajeIdaVuelta.setRegresoMes("04");
         viajeIdaVuelta.setRegresoAno(2022);
         viajeIdaVuelta.setPasajeroAdulto("2");
         viajeIdaVuelta.setPasajeroMenor("2");
@@ -149,10 +151,10 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
     private void generateTravelIda(){
         viajeIda = new RetoWPModel();
         viajeIda.setTipoViaje(TipoViaje.SOLOIDA);
-        viajeIda.setOrigen("Medellín");
-        viajeIda.setDestino("Bogotá");
+        viajeIda.setOrigen(" Medellín");
+        viajeIda.setDestino(" Bogotá");
         viajeIda.setIdaDia(30);
-        viajeIda.setIdaMes("05");
+        viajeIda.setIdaMes("06");
         viajeIda.setIdaAno(2022);
         viajeIda.setTipoClase(TipoClase.ECONOMICA);
         viajeIda.setTarjetaCredito("5254 1336 7440 3564");
@@ -177,7 +179,7 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
 
     public List<String> forSubmittedFormIda(){
         List<String> submitedFormResult = new ArrayList<>();
-        submitedFormResult.add(viajeIda.getOrigen() + " - " + viajeIda.getDestino());
+        submitedFormResult.add(viajeIda.getOrigen().trim() + " - " + viajeIda.getDestino().trim());
 
         return submitedFormResult;
     }

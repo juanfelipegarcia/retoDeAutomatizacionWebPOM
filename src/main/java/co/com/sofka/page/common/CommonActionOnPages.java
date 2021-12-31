@@ -63,9 +63,26 @@ public class CommonActionOnPages {
     }
 
     protected void explicitWaitTime(By locator){
-        wait =new WebDriverWait(driver,100);
+        wait =new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
+    protected void waitToBeClickable(By locator){
+        this.wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    protected void waitGeneral (By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+
+    public boolean isElementPresent(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            return element.isDisplayed();
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 
 

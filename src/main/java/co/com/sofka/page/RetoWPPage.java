@@ -2,6 +2,9 @@ package co.com.sofka.page;
 
 import co.com.sofka.model.RetoWPModel;
 import co.com.sofka.page.common.CommonActionOnPages;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +15,7 @@ public class RetoWPPage extends CommonActionOnPages {
 
     private final RetoWPModel retoWPModel;
     private WebDriver webDriver;
+    public static Log log= LogFactory.getLog(ResolverUtil.Test.class);
 
     //For input test cases
     private final By tipoViajeIdaYVuelta = By.xpath("//*[@id=\"searchbox-sbox-box-flights\"]/div/div[1]/div/span[1]");
@@ -42,6 +46,7 @@ public class RetoWPPage extends CommonActionOnPages {
     private final By aplicarPasajeros = By.xpath("//*[@id=\"component-modals\"]/div[3]/div/div/div[3]/a");
     private final By localizacionSelecionar = By.xpath("//*[@id=\"clusters\"]/span[1]/div/span/cluster/div/div/div[2]/fare/span");
     private final By selectVuelos = By.xpath("//*[@id=\"clusters\"]/span[1]/div/span/cluster/div/div/div[2]/fare/span/span/div[2]");
+    private final By equipajePageLocator = By.className("-show-modal");
     private final By confirmacionEquipaje = By.xpath("//*[@id=\"upselling-popup-position\"]/upselling-popup/div/div[3]/div/div/button");
     private final By search = By.xpath("//*[@id=\"searchbox-sbox-box-flights\"]/div/div[2]/div[3]/button");
 
@@ -109,12 +114,6 @@ public class RetoWPPage extends CommonActionOnPages {
     private final By assertionOrigenDestino = By.xpath("/html/body/div[2]/div/div/app/checkout-form/div/form-component/" +
             "form/div[2]/div/purchase-detail-component/div/products-detail-component-v2/div/div/product-title-v2/div/div[2]/div");
 
-    //private final By assertionTipoViaje = By.xpath("");
-
-
-
-
-
     //Constructor
 
 
@@ -125,7 +124,7 @@ public class RetoWPPage extends CommonActionOnPages {
     }
 
     //Funtions
-    public void fillretoWPTestIdaVuelta() throws InterruptedException {
+    public void fillretoWPTestIdaVuelta() {
 
         switch (retoWPModel.getTipoViaje()){
             case IDAVUELTA:
@@ -140,14 +139,26 @@ public class RetoWPPage extends CommonActionOnPages {
         }
 
         click(origen);
-        typeInto(origen, " "+retoWPModel.getOrigen());
+        typeInto(origen, retoWPModel.getOrigen());
         explicitWaitTime(confirOrigen);
         click(confirOrigen);
         click(destino);
-        typeInto(destino, " ");
-        typeInto(destino, " "+retoWPModel.getDestino());
-        explicitWaitTime(confirDestino);
-        click(confirDestino);
+        typeInto(destino, retoWPModel.getDestino());
+
+        try {
+            waitGeneral(confirDestino);
+            click(confirDestino);
+
+        }catch (Exception e){
+
+            click(destino);
+            clearText(destino);
+            typeInto(destino, retoWPModel.getDestino());
+            waitGeneral(confirDestino);
+            click(confirDestino);
+        }
+
+
 
         click(date);
         //Thread.sleep(2000);
@@ -179,8 +190,12 @@ public class RetoWPPage extends CommonActionOnPages {
         explicitWaitTime(localizacionSelecionar);
         click(selectVuelos);
 
-        explicitWaitTime(confirmacionEquipaje);
-        click(confirmacionEquipaje);
+        if (isElementPresent(equipajePageLocator)) {
+            waitToBeClickable(confirmacionEquipaje);
+            click(confirmacionEquipaje);
+        }else{
+
+        }
 
         explicitWaitTime(localizacionInfo);
 
@@ -233,7 +248,7 @@ public class RetoWPPage extends CommonActionOnPages {
         scrollTo(localizacionInfo);
     }
 
-    public void fillretoWPTestIda() throws InterruptedException {
+    public void fillretoWPTestIda(){
 
         switch (retoWPModel.getTipoViaje()){
             case IDAVUELTA:
@@ -248,14 +263,24 @@ public class RetoWPPage extends CommonActionOnPages {
         }
 
         click(origen);
-        typeInto(origen, " "+retoWPModel.getOrigen());
+        typeInto(origen, retoWPModel.getOrigen());
         explicitWaitTime(confirOrigen);
         click(confirOrigen);
         click(destino);
-        typeInto(destino, "");
-        typeInto(destino, " "+retoWPModel.getDestino());
-        explicitWaitTime(confirDestino);
-        click(confirDestino);
+        typeInto(destino, retoWPModel.getDestino());
+
+        try {
+            waitGeneral(confirDestino);
+            click(confirDestino);
+
+        }catch (Exception e){
+
+            click(destino);
+            clearText(destino);
+            typeInto(destino, retoWPModel.getDestino());
+            waitGeneral(confirDestino);
+            click(confirDestino);
+        }
 
         click(date);
         explicitWaitTime(LocalizacionDate);
@@ -302,8 +327,12 @@ public class RetoWPPage extends CommonActionOnPages {
         explicitWaitTime(localizacionSelecionar);
         click(selectVuelos);
 
-        /*explicitWaitTime(confirmacionEquipaje);
-        click(confirmacionEquipaje);*/
+        if (isElementPresent(equipajePageLocator)) {
+            waitToBeClickable(confirmacionEquipaje);
+            click(confirmacionEquipaje);
+        }else{
+
+        }
 
         explicitWaitTime(localizacionInfo);
 
@@ -362,8 +391,6 @@ public class RetoWPPage extends CommonActionOnPages {
     public List<String> isRegistrationDoneIdaVuelta(){
         List<String> submitedFormResult = new ArrayList<>();
         submitedFormResult.add(getText(assertionOrigenDestino).trim());
-        //submitedFormResult.add(getText(assertionTipoViaje).trim());
-
 
         return submitedFormResult;
     }
@@ -371,8 +398,6 @@ public class RetoWPPage extends CommonActionOnPages {
     public List<String> isRegistrationDoneIda(){
         List<String> submitedFormResult = new ArrayList<>();
         submitedFormResult.add(getText(assertionOrigenDestino).trim());
-        //submitedFormResult.add(getText(assertionTipoViaje).trim());
-
 
         return submitedFormResult;
     }
