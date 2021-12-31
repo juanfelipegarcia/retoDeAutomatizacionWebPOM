@@ -61,10 +61,12 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
                 retoWPPage.isRegistrationDoneIdaVuelta(),
                 forSubmittedFormIdaVuelta(),
                 String.format(ASSERTION_EXCEPTION_MESSAGE, outcomeIdaVuelta())
-        );
+            );
+            LOGGER.info("Finaliza scenario 1");
 
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
+            LOGGER.warn(exception);
             quietDriver();
         }finally {
             quietDriver();
@@ -96,7 +98,8 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
                 retoWPPage.isRegistrationDoneIda().toString(),
                 forSubmittedFormIda().toString(),
                 String.format(ASSERTION_EXCEPTION_MESSAGE, outcomeIda())
-        );
+            );
+            LOGGER.info("Finaliza scenario 2");
 
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
@@ -143,7 +146,7 @@ public class RetoWPTestCucumberStepDefinition extends WebUI {
 
     public List<String> forSubmittedFormIdaVuelta(){
         List<String> submitedFormResult = new ArrayList<>();
-        submitedFormResult.add(viajeIdaVuelta.getOrigen() + " - " + viajeIdaVuelta.getDestino());
+        submitedFormResult.add(viajeIdaVuelta.getOrigen().trim() + " - " + viajeIdaVuelta.getDestino().trim());
 
         return submitedFormResult;
     }

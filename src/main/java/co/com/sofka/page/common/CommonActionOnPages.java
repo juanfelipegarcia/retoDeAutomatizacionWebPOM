@@ -16,6 +16,9 @@ public class CommonActionOnPages {
     public CommonActionOnPages(WebDriver driver) {
         this.driver = driver;
     }
+    protected void explicitWait() {
+        wait = new WebDriverWait(driver, 5);
+    }
 
     public void typeInto(By locator, String value){
         driver.findElement(locator).sendKeys(value);

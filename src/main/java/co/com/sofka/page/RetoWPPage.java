@@ -46,9 +46,15 @@ public class RetoWPPage extends CommonActionOnPages {
     private final By aplicarPasajeros = By.xpath("//*[@id=\"component-modals\"]/div[3]/div/div/div[3]/a");
     private final By localizacionSelecionar = By.xpath("//*[@id=\"clusters\"]/span[1]/div/span/cluster/div/div/div[2]/fare/span");
     private final By selectVuelos = By.xpath("//*[@id=\"clusters\"]/span[1]/div/span/cluster/div/div/div[2]/fare/span/span/div[2]");
+
     private final By equipajePageLocator = By.className("-show-modal");
     private final By confirmacionEquipaje = By.xpath("//*[@id=\"upselling-popup-position\"]/upselling-popup/div/div[3]/div/div/button");
     private final By search = By.xpath("//*[@id=\"searchbox-sbox-box-flights\"]/div/div[2]/div[3]/button");
+
+    private final By filteraerolinea = By.xpath("//*[@id=\"filter-airlines\"]");
+    private final By aerolinea = By.xpath("//*[@id=\"filter-airlines\"]/li/span");
+    private final By mismaAerolinea = By.xpath("//*[@id=\"filter-airlines\"]/li/ul/div[2]/checkbox-filter/checkbox-filter-item/li/span/span/span/label");
+    private final By selectVuelosMismaAerolinea = By.xpath("/html/body/div[13]/div/div/div/div[3]/div/div[2]/div/div[4]/app-root/app-common/items/div/span[1]/div/span/cluster/div/div/div[2]/fare/span/span/div[2]");
 
     private final By localizacionDetalleVuelo = By.xpath("//*[@id=\"pricebox-list-detail\"]");
     private final By localizacionInfo = By.xpath("//*[@id=\"checkout-content\"]/div[2]/pricebox/div[1]/p");
@@ -113,6 +119,8 @@ public class RetoWPPage extends CommonActionOnPages {
 
     private final By assertionOrigenDestino = By.xpath("/html/body/div[2]/div/div/app/checkout-form/div/form-component/" +
             "form/div[2]/div/purchase-detail-component/div/products-detail-component-v2/div/div/product-title-v2/div/div[2]/div");
+    private final By assertionOrigenDestinoIdaVuelta = By.xpath("//*[@id=\"checkout-content\"]/div[2]/div/purchase-detail-component/" +
+            "div/products-detail-component-v2/div[1]/div/product-title-v2/div/div[2]/div[2]");
 
     //Constructor
 
@@ -124,7 +132,7 @@ public class RetoWPPage extends CommonActionOnPages {
     }
 
     //Funtions
-    public void fillretoWPTestIdaVuelta() {
+    public void fillretoWPTestIdaVuelta() throws InterruptedException {
 
         switch (retoWPModel.getTipoViaje()){
             case IDAVUELTA:
@@ -158,8 +166,6 @@ public class RetoWPPage extends CommonActionOnPages {
             click(confirDestino);
         }
 
-
-
         click(date);
         //Thread.sleep(2000);
         explicitWaitTime(LocalizacionDate);
@@ -188,13 +194,12 @@ public class RetoWPPage extends CommonActionOnPages {
         click(search);
 
         explicitWaitTime(localizacionSelecionar);
+
         click(selectVuelos);
 
         if (isElementPresent(equipajePageLocator)) {
             waitToBeClickable(confirmacionEquipaje);
             click(confirmacionEquipaje);
-        }else{
-
         }
 
         explicitWaitTime(localizacionInfo);
@@ -390,7 +395,7 @@ public class RetoWPPage extends CommonActionOnPages {
 
     public List<String> isRegistrationDoneIdaVuelta(){
         List<String> submitedFormResult = new ArrayList<>();
-        submitedFormResult.add(getText(assertionOrigenDestino).trim());
+        submitedFormResult.add(getText(assertionOrigenDestinoIdaVuelta).trim());
 
         return submitedFormResult;
     }
