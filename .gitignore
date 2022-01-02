@@ -23,18 +23,27 @@
 hs_err_pid*
 
 # Gradle
-.gradle
+*/.gradle
+*/DemoToolsQa/.gradle
+*/DEMO_QA_POM/.gradle
 
 #Intellij
-.idea
+*/.idea/
+*/WebPOM/.idea/
+*/WebPOMPageFactory/.idea/
 
 #Java
-build
+*/build/
+*/WebPOM/build/
+*/WebPOMPageFactory/build/
 
-out
+*/out/
+*/WebPOM/out/
+*/WebPOMPageFactory/out/
 
-history
+*/history/
+*/WebPOM/history/
+*/WebPOMPageFactory/history/
 
-#Serenity
-target
+
 
