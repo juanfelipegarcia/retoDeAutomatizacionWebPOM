@@ -172,7 +172,7 @@ public class RetoWPPage extends CommonActionOnPages {
 
         scrollTo(aplicarFechas);
 
-        for(Integer i=0 ; i<=Integer.parseInt(retoWPModel.getIdaMes())-2 ; i++){
+        for(Integer i=0 ; i<Integer.parseInt(retoWPModel.getIdaMes())-1 ; i++){
             click(arrowRight);
         }
 

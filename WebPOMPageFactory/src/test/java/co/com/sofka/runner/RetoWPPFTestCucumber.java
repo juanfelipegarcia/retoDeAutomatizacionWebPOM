@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         features = {"src/test/resources/features/reto_wppf.feature"},
         glue ={"co.com.sofka.stepdefinition"},
-        tags = "",
+        tags = "not @Comprador2",
         publish = true
 )
 
