@@ -83,25 +83,26 @@ public class RetoWPPFPage extends CommonActionOnpages {
 
 
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[2]")
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div")
     private WebElement div_ofertas;
 
 
     @CacheLookup
     @FindBy(xpath = "/html/body/div[2]/main/div/div[2]/div/div[1]/div/div[2]")
     private WebElement div_options_ofertas;
+    //*[@id="main"]/div/div[2]/div/div[2]/div
 
     @CacheLookup
-    @FindBy(id = "pa_sabor_4744")
+    @FindBy(id = "pa_sabor_2630")
     private WebElement selectOptionOfertas;
 
 
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"pa_sabor_4744\"]/option[3]")
+    @FindBy(xpath = "//*[@id=\"pa_sabor_2630\"]/option[3]")
     private WebElement selectSaborOfertas;
 
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"product-227900\"]/div/div[1]/div/div[2]/form/div[4]/div/div[4]/div/input[3]")
+    @FindBy(xpath = "//*[@id=\"product-201887\"]/div/div[1]/div/div[2]/form/div[4]/div/div[4]/div/input[3]")
     private WebElement adjutoUnidadOfertas;
 
 
@@ -114,13 +115,6 @@ public class RetoWPPFPage extends CommonActionOnpages {
     @CacheLookup
     @FindBy(className = "wc-proceed-to-checkout")
     private WebElement finalizarCompra;
-
-
-
-
-
-
-
 
 
     @CacheLookup
@@ -342,7 +336,8 @@ public class RetoWPPFPage extends CommonActionOnpages {
             scrollTo(pagoBaloto2);
 
             explicitWaitTime(terminosCondiciones2);
-            click(terminosCondiciones2);
+            waitGeneral(terminosCondiciones2);
+            waitClick(terminosCondiciones2);
 
             switch (retoWPPFModel.getMetodoPago()){
                 case CORRESPONSAL:
@@ -415,7 +410,6 @@ public class RetoWPPFPage extends CommonActionOnpages {
 
             click(SELECT_OPTIONS);
 
-            //explicitWaitTime(div_options_ofertas);
             scrollTo(div_options_ofertas);
 
             click(selectOptionOfertas);
@@ -459,7 +453,8 @@ public class RetoWPPFPage extends CommonActionOnpages {
             scrollTo(tarjetasOtros2);
 
             explicitWaitTime(terminosCondiciones2);
-            click(terminosCondiciones2);
+            waitGeneral(terminosCondiciones2);
+            waitClick(terminosCondiciones2);
 
             switch (retoWPPFModel.getMetodoPago()){
                 case CORRESPONSAL:

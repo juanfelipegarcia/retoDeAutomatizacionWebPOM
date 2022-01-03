@@ -81,7 +81,7 @@ public class RetoWPModel {
     }
 
     public void setIdaDia(int idaDia) {
-        this.idaDia = idaDia+1;
+        this.idaDia = idaDia;
     }
 
     public String getIdaMes() {
@@ -105,7 +105,7 @@ public class RetoWPModel {
     }
 
     public void setRegresoDia(int regresoDia) {
-        this.regresoDia = regresoDia+1;
+        this.regresoDia = regresoDia;
     }
 
     public String getRegresoMes() {

@@ -172,16 +172,21 @@ public class RetoWPPage extends CommonActionOnPages {
 
         scrollTo(aplicarFechas);
 
-        for(Integer i=0 ; i<=Integer.parseInt(retoWPModel.getIdaMes())-1 ; i++){
+        for(Integer i=0 ; i<=Integer.parseInt(retoWPModel.getIdaMes())-2 ; i++){
             click(arrowRight);
         }
 
-        By seleccionDiaIda =By.cssSelector("div[data-month='"+retoWPModel.getIdaAno()+"-"+retoWPModel.getIdaMes()+"'] " +
-                ".sbox5-monthgrid-datenumber:nth-child("+retoWPModel.getIdaDia()+")");
+        /*By seleccionDiaIda =By.cssSelector("div[data-month='"+retoWPModel.getIdaAno()+"-"+retoWPModel.getIdaMes()+"'].sbox5-monthgrid-datenumber:nth-child("+retoWPModel.getIdaDia()+")");
         click(seleccionDiaIda);
 
         By seleccionDiaVuelta =By.cssSelector("div[data-month='"+retoWPModel.getRegresoAno()+"-"+retoWPModel.getRegresoMes()+"'] " +
                 ".sbox5-monthgrid-datenumber:nth-child("+retoWPModel.getRegresoDia()+")");
+        click(seleccionDiaVuelta);*/
+
+        By seleccionDiaIda =By.xpath("//*[@id=\"component-modals\"]/div[1]/div[1]/div[2]/div[1]/div[3]/div["+retoWPModel.getIdaDia()+"]/div");
+        click(seleccionDiaIda);
+
+        By seleccionDiaVuelta =By.xpath("//*[@id=\"component-modals\"]/div[1]/div[1]/div[2]/div[1]/div[3]/div["+retoWPModel.getRegresoDia()+"]/div");
         click(seleccionDiaVuelta);
 
         click(aplicarFechas);
@@ -292,12 +297,15 @@ public class RetoWPPage extends CommonActionOnPages {
 
         scrollTo(aplicarFechas);
 
-        for(Integer i=0 ; i<=Integer.parseInt(retoWPModel.getIdaMes())-1 ; i++){
+        for(Integer i=0 ; i<=Integer.parseInt(retoWPModel.getIdaMes())-2 ; i++){
             click(arrowRight);
         }
 
-        By seleccionDiaIda =By.cssSelector("div[data-month='"+retoWPModel.getIdaAno()+"-"+retoWPModel.getIdaMes()+"'] " +
+        /*By seleccionDiaIda =By.cssSelector("div[data-month='"+retoWPModel.getIdaAno()+"-"+retoWPModel.getIdaMes()+"'] " +
                 ".sbox5-monthgrid-datenumber:nth-child("+retoWPModel.getIdaDia()+")");
+        click(seleccionDiaIda);*/
+
+        By seleccionDiaIda =By.xpath("//*[@id=\"component-modals\"]/div[1]/div[1]/div[2]/div[1]/div[3]/div["+retoWPModel.getIdaDia()+"]/div");
         click(seleccionDiaIda);
 
         scrollTo(pasajeros);

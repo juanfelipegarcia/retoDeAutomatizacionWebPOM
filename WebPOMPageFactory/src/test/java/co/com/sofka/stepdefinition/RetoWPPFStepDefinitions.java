@@ -29,7 +29,7 @@ public class RetoWPPFStepDefinitions extends WebUI {
         } catch (Exception e) {
             Assertions.fail(e.getMessage(), e);
             LOGGER.warn(e);
-           //quietDriver();
+           quietDriver();
         }
 
     }
@@ -44,7 +44,7 @@ public class RetoWPPFStepDefinitions extends WebUI {
         }catch (Exception e){
             Assertions.fail(e.getMessage(), e);
             LOGGER.warn(e);
-            //quietDriver();
+            quietDriver();
         }
     }
     @Then("el comprador debere observar el mensaje de comfirmacion de su pedido de X2.")
@@ -60,9 +60,9 @@ public class RetoWPPFStepDefinitions extends WebUI {
         } catch (Exception exception){
             Assertions.fail(exception.getMessage(), exception);
             LOGGER.warn(exception);
-            //quietDriver();
+            quietDriver();
         }finally {
-            //quietDriver();
+            quietDriver();
         }
     }
 
@@ -76,7 +76,7 @@ public class RetoWPPFStepDefinitions extends WebUI {
         }catch (Exception e){
             Assertions.fail(e.getMessage(), e);
             LOGGER.warn(e);
-            //quietDriver();
+            quietDriver();
         }
     }
     @Then("el comprador debere observar el mensaje de comfirmacion de su pedido de Ofertas.")
@@ -143,7 +143,7 @@ public class RetoWPPFStepDefinitions extends WebUI {
         List<String> submitedFormResult = new ArrayList<>();
         submitedFormResult.add("Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web y otros propósitos descritos en nuestra política de privacidad.");
         submitedFormResult.add("6");
-        submitedFormResult.add("$731.900");
+        submitedFormResult.add("$562.300");
 
         return submitedFormResult;
     }
